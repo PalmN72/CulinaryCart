@@ -1,32 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import { urlForImage } from "@/sanity/lib/image";
+import { BannerT } from "@/types/types";
 
-type heroBannerT = {
-  _rev: string;
-  discount: string;
-  midText: string;
-  smallText: string;
-  largeText2: string;
-  _id: string;
-  desc: string;
-  buttonText: string;
-  product: string;
-  _type: string;
-  _createdAt: string;
-  saleTime: string;
-  largeText1: string;
-  _updatedAt: string;
-  image: {
-    _type: string;
-    asset: {
-      _ref: string;
-      _type: string;
-    };
-  };
-};
-
-const HeroBanner = ({ heroBanner }) => {
+const HeroBanner: React.FC<{ heroBanner: BannerT }> = ({ heroBanner }) => {
   return (
     <div className="hero-banner-container">
       <div>
