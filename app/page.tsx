@@ -1,64 +1,37 @@
 import { Product, FooterBanner, HeroBanner } from "../components";
 import { client } from "../sanity/lib/client";
-
-type ProductsT = {
-  map(arg0: (product: ProductsT) => String): import("react").ReactNode;
-  image: [];
-  _createdAt: String;
-  name: String;
-  _updatedAt: String;
-  price: Number;
-  _rev: String;
-  _type: String;
-  details: String;
-  id: String;
-  slug: { current: String; _type: String };
-};
-
-type BannerT = {
-  _rev: string;
-  discount: string;
-  midText: string;
-  smallText: string;
-  largeText2: string;
-  _id: string;
-  desc: string;
-  buttonText: string;
-  product: string;
-  _type: string;
-  _createdAt: string;
-  saleTime: string;
-  largeText1: string;
-  _updatedAt: string;
-};
+import { ProductT, BannerT } from "@/types/types";
 
 const fetchSanity = async () => {
   const query = '*[_type == "product"]';
-  const bannerQ = '*[_type == "banner"]';
-  const products: ProductsT = await client.fetch(query);
-  const bannerData = await client.fetch(bannerQ);
+  const bannerQ = '*[_type == "banner"][0]';
+  const products: ProductT[] = await client.fetch(query);
+  const bannerData: BannerT = await client.fetch(bannerQ);
   return {
-    props: {
-      products,
-      bannerData,
-    },
+    products,
+    bannerData,
   };
 };
 
-const props = await fetchSanity();
-console.log(props.props.bannerData);
+const data = await fetchSanity();
+
 export default function Home() {
+  const productData = data.products;
+  const bannerData = data.bannerData;
+
   return (
     <main>
-      <HeroBanner heroBanner={props.props.bannerData[0]} />
+      <HeroBanner heroBanner={bannerData} />
       <div className="products-heading">
         <h2>Best Selling Products</h2>
         <p>Fruits</p>
       </div>
       <div className="products-container">
-        {props.props.products.map((product: ProductsT) => product.name)}
+        {productData.map((product: ProductT) => (
+          <Product key={product.id as React.Key} product={product} />
+        ))}
       </div>
-      <FooterBanner></FooterBanner>
+      <FooterBanner banner={bannerData} />
     </main>
   );
 }
