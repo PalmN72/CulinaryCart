@@ -1,17 +1,6 @@
 import { Product, FooterBanner, HeroBanner } from "../components";
-import { client } from "../sanity/lib/client";
-import { ProductT, BannerT } from "@/types/types";
-
-const fetchSanity = async () => {
-  const query = '*[_type == "product"]';
-  const bannerQ = '*[_type == "banner"][0]';
-  const products: ProductT[] = await client.fetch(query);
-  const bannerData: BannerT = await client.fetch(bannerQ);
-  return {
-    products,
-    bannerData,
-  };
-};
+import { ProductT } from "@/types/types";
+import { fetchSanity } from "./api/fetch";
 
 const data = await fetchSanity();
 
