@@ -17,7 +17,7 @@ export default function Home() {
       </div>
       <div className="products-container">
         {productData.map((product: ProductT) => (
-          <Product key={product.id as React.Key} product={product} />
+          <Product key={product._id as React.Key} product={product} />
         ))}
       </div>
       <FooterBanner banner={bannerData} />
