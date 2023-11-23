@@ -9,15 +9,16 @@ export type ProductT = {
       };
     }
   ];
-  _createdAt: String;
-  name: String;
-  _updatedAt: String;
-  price: Number;
-  _rev: String;
-  _type: String;
-  details: String;
+  _createdAt: string;
+  name: string;
+  _updatedAt: string;
+  price: number;
+  _rev: string;
+  _type: string;
+  details: string;
   _id: string;
-  slug: { current: String; _type: String };
+  slug: { current: string; _type: string };
+  quantity: number;
 };
 
 export type BannerT = {
