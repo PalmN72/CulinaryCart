@@ -17,6 +17,7 @@ export type ProductT = {
   _type: String;
   details: String;
   id: String;
+  _id: string;
   slug: { current: String; _type: String };
 };
 
