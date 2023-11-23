@@ -6,4 +6,6 @@ export { default as Cart } from "./Cart";
 export { default as Product } from "./Product";
 export { default as Header } from "./Header";
 export { default as ProductImages } from "./ProductImages";
-export { default as Quantity } from "./Quantity";
+export { default as Quantity } from "./buttons/Quantity";
+export { default as CartButton } from "./buttons/AddToCart";
+export { default as CartIconButton } from "./buttons/CartIconButton";
