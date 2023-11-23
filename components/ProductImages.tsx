@@ -1,8 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import { urlForImage } from "@/sanity/lib/image";
+import { ProductT } from "@/types/types";
 
-const ProductImages = (data) => {
+type ProductImagesProps = {
+  data: ProductT;
+};
+
+const ProductImages: React.FC<ProductImagesProps> = (data) => {
   const [index, setIndex] = useState(0);
 
   return (
@@ -17,6 +22,7 @@ const ProductImages = (data) => {
       <div className="small-images-container">
         {data.data.image.map((item, i) => (
           <img
+            key={data.data._id}
             src={urlForImage(item).url()}
             className={
               i === index ? "small-image selected-image" : "small-image"
