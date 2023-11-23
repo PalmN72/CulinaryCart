@@ -1,7 +1,7 @@
 import React from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { fetchSanity, fetchProd } from "@/app/api/fetch";
-import { Product, ProductImages, Quantity } from "@/components";
+import { Product, ProductImages, Quantity, CartButton } from "@/components";
 
 const ProductDetails = async ({ params }: { params: { slug: string } }) => {
   const data = await fetchProd(params.slug);
@@ -37,9 +37,7 @@ const ProductDetails = async ({ params }: { params: { slug: string } }) => {
             </p>
           </div>
           <div className="buttons">
-            <button type="button" className="add-to-cart">
-              Add to Cart
-            </button>
+            <CartButton product={data} />
             <button type="button" className="buy-now">
               Buy Now
             </button>
