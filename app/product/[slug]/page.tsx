@@ -1,18 +1,12 @@
 import React from "react";
-import {
-  AiOutlineMinus,
-  AiOutlinePlus,
-  AiFillStar,
-  AiOutlineStar,
-} from "react-icons/ai";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { fetchSanity, fetchProd } from "@/app/api/fetch";
-import { Product, ProductImages } from "@/components";
-import { useCartContext } from "@/context/StateContext";
+import { Product, ProductImages, Quantity } from "@/components";
 
 const ProductDetails = async ({ params }: { params: { slug: string } }) => {
   const data = await fetchProd(params.slug);
   const product = (await fetchSanity()).products;
-  const { decQty, incQty, qty } = useCartContext();
+
   return (
     <div>
       <div className="product-detail-container">
@@ -37,17 +31,9 @@ const ProductDetails = async ({ params }: { params: { slug: string } }) => {
           <div className="quantity">
             <h3>Quantity:</h3>
             <p className="quantity-desc">
-              <span className="minus" onClick={decQty}>
-                <AiOutlineMinus />
-              </span>
-            </p>
-            <p className="quantity-desc">
-              <span className="num">{qty}</span>
-            </p>
-            <p className="quantity-desc">
-              <span className="plus" onClick={incQty}>
-                <AiOutlinePlus />
-              </span>
+              <Quantity data="minus" />
+              <Quantity data="qty" />
+              <Quantity data="plus" />
             </p>
           </div>
           <div className="buttons">
@@ -65,7 +51,7 @@ const ProductDetails = async ({ params }: { params: { slug: string } }) => {
         <div className="marquee">
           <div className="maylike-products-container track">
             {product.map((item) => (
-              <Product key={item.id as React.Key} product={item} />
+              <Product key={item._id as React.Key} product={item} />
             ))}
           </div>
         </div>
