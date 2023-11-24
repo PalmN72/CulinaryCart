@@ -1,6 +1,6 @@
 import { Product, FooterBanner, HeroBanner } from "../components";
 import { ProductT } from "@/types/types";
-import { fetchSanity } from "./api/fetch";
+import { fetchSanity } from "./api/getProducts/fetch";
 
 const data = await fetchSanity();
 
