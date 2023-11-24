@@ -1,6 +1,6 @@
 import React from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
-import { fetchSanity, fetchProd } from "@/app/api/fetch";
+import { fetchSanity, fetchProd } from "@/app/api/getProducts/fetch";
 import { Product, ProductImages, Quantity, CartButton } from "@/components";
 
 const ProductDetails = async ({ params }: { params: { slug: string } }) => {
