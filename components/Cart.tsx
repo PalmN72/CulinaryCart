@@ -6,6 +6,7 @@ import { TiDeleteOutline } from "react-icons/ti";
 import { urlForImage } from "@/sanity/lib/image";
 import { useCartContext } from "@/context/StateContext";
 import { Quantity } from ".";
+import { handlePayment } from "@/handlers/paymentHandler";
 
 const Cart = () => {
   const cartRef = useRef();
@@ -87,7 +88,11 @@ const Cart = () => {
                 <h3>SEK {totalPrice}</h3>
               </div>
               <div className="btn-container">
-                <button type="button" className="btn" onClick="">
+                <button
+                  type="button"
+                  className="btn"
+                  onClick={() => handlePayment(cartItems)}
+                >
                   Pay with Stripe
                 </button>
               </div>
