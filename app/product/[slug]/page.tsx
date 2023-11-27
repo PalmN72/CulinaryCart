@@ -1,10 +1,12 @@
 import React from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { fetchSanity, fetchProd } from "@/app/api/getProducts/fetch";
-import { Product, ProductImages, Quantity, CartButton } from "@/components";
+import { Product, ProductImages, Quantity, AddToCart } from "@/components";
+import BuyNow from "@/components/buttons/BuyNow";
+import { ProductT } from "@/types/types";
 
 const ProductDetails = async ({ params }: { params: { slug: string } }) => {
-  const data = await fetchProd(params.slug);
+  const data: ProductT = await fetchProd(params.slug);
   const product = (await fetchSanity()).products;
 
   return (
@@ -37,10 +39,8 @@ const ProductDetails = async ({ params }: { params: { slug: string } }) => {
             </p>
           </div>
           <div className="buttons">
-            <CartButton product={data} />
-            <button type="button" className="buy-now">
-              Buy Now
-            </button>
+            <AddToCart product={data} />
+            <BuyNow product={data} />
           </div>
         </div>
       </div>
