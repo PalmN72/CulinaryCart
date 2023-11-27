@@ -4,7 +4,7 @@ import Link from "next/link";
 import { AiOutlineLeft, AiOutlineShopping } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
 import { urlForImage } from "@/sanity/lib/image";
-import { useCartContext } from "@/context/StateContext";
+import { useCartContext } from "@/context/CartContext";
 import { Quantity } from ".";
 import { handlePayment } from "@/handlers/paymentHandler";
 
