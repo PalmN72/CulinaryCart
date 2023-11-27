@@ -72,13 +72,17 @@ export const CartContextProvider = ({ children }: Props) => {
     setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
 
     if (checkProductIncart) {
-      const updatedCartItems = cartItems.map((cartProduct) => {
-        if (cartProduct._id === product._id)
-          return {
-            ...cartProduct,
-            quantity: cartProduct.quantity + quantity,
-          };
-      });
+      const updatedCartItems: ProductT[] = cartItems
+        .map((cartProduct) => {
+          if (cartProduct._id === product._id) {
+            return {
+              ...cartProduct,
+              quantity: cartProduct.quantity + quantity,
+            };
+          }
+          return cartProduct;
+        })
+        .filter(Boolean);
 
       setCartItems(updatedCartItems);
     } else {
