@@ -9,7 +9,7 @@ import { Quantity } from ".";
 import { handlePayment } from "@/handlers/paymentHandler";
 
 const Cart = () => {
-  const cartRef = useRef<HTMLDivElement>(null);
+  const cartRef = useRef<HTMLDivElement | null>(null);
   const {
     showCart,
     setShowCart,
