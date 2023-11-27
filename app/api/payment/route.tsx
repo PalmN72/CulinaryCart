@@ -1,16 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import { headers } from "next/headers";
 import stripe from "@/stripe/stripeConfig";
+import { ProductT } from "@/types/types";
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
   const headersList = headers();
   const data = await req.json();
 
-  const lineItems = data.cartItems.map((item) => {
+  const lineItems = data.cartItems.map((item: ProductT) => {
     const img = item.image[0].asset._ref;
     const newImage = img
       .replace("image-", "https://cdn.sanity.io/images/m9c5ybdd/production")
       .replace("-webp", ".webp");
+
     return {
       price_data: {
         currency: "sek",
@@ -40,8 +42,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
       ],
 
       line_items: lineItems,
-      success_url: `${headersList.get("origin")}/thank-you`,
-      cancel_url: `${headersList.get("origin")}/`,
+      success_url: `${headersList.get("origin")}/success`,
+      cancel_url: `${headersList.get("origin")}/canceled`,
     });
 
     return NextResponse.json({ sessionId: session.id });
