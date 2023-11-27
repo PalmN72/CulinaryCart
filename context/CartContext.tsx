@@ -6,23 +6,29 @@ import { toast } from "react-hot-toast";
 type CartValueT = {
   showCart: boolean;
   setShowCart: (state: boolean) => void;
-  cartItems: any[];
+  cartItems: ProductT[];
+  setCartItems: (items: ProductT[]) => void;
   totalPrice: number;
+  setTotalPrice: (price: number) => void;
   totalQuantities: number;
+  setTotalQuantities: (quantity: number) => void;
   qty: number;
-  toggleCartItemQuantity: (id: any, value: any) => void;
-  onRemove: (product: any) => void;
+  toggleCartItemQuantity: (id: string, value: string) => void;
+  onRemove: (product: ProductT) => void;
   incQty: () => void;
   decQty: () => void;
-  onAdd: (product: any, quantity: number) => void;
+  onAdd: (product: ProductT, quantity: number) => void;
 };
 
 const cartDefaultValues: CartValueT = {
   showCart: false,
   setShowCart: () => {},
   cartItems: [],
+  setCartItems: () => {},
   totalPrice: 0,
+  setTotalPrice: () => {},
   totalQuantities: 0,
+  setTotalQuantities: () => {},
   qty: 0,
   onRemove: () => {},
   toggleCartItemQuantity: () => {},
@@ -39,7 +45,7 @@ type Props = {
 
 export const CartContextProvider = ({ children }: Props) => {
   const [showCart, setShowCart] = useState(false);
-  const [cartItems, setCartItems] = useState<any[]>([]);
+  const [cartItems, setCartItems] = useState<ProductT[]>([]);
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [totalQuantities, setTotalQuantities] = useState<number>(0);
   const [qty, setQty] = useState(1);
@@ -83,7 +89,7 @@ export const CartContextProvider = ({ children }: Props) => {
   };
 
   const onRemove = (product: ProductT) => {
-    foundProduct = cartItems.find((product) => product._id === product._id);
+    foundProduct = cartItems.find((product) => product._id === product._id)!;
 
     const newCartItems = cartItems.filter((item) => item._id !== product._id);
     setCartItems(newCartItems);
@@ -94,7 +100,7 @@ export const CartContextProvider = ({ children }: Props) => {
   };
 
   const toggleCartItemQuantity = (id: string, value: string) => {
-    foundProduct = cartItems.find((item) => item._id === id);
+    foundProduct = cartItems.find((item) => item._id === id)!;
 
     if (value === "inc") {
       const updatedData = cartItems.map((item) =>
@@ -119,8 +125,11 @@ export const CartContextProvider = ({ children }: Props) => {
     showCart,
     setShowCart,
     cartItems,
+    setCartItems,
     totalPrice,
+    setTotalPrice,
     totalQuantities,
+    setTotalQuantities,
     qty,
     incQty,
     decQty,
