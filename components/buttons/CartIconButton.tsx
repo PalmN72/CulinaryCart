@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { AiOutlineShopping } from "react-icons/ai";
-import { useCartContext } from "@/context/StateContext";
+import { useCartContext } from "@/context/CartContext";
 
 const CartIconButton = () => {
   const { showCart, setShowCart, totalQuantities } = useCartContext();
