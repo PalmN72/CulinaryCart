@@ -1,8 +1,7 @@
 "use client";
 import React from "react";
-import { useCartContext } from "@/context/StateContext";
+import { useCartContext } from "@/context/CartContext";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import { it } from "node:test";
 import { ProductT } from "@/types/types";
 
 type ButtonProps = {
