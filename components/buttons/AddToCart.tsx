@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
-import { useCartContext } from "@/context/StateContext";
+import { useCartContext } from "@/context/CartContext";
+import { ProductT } from "@/types/types";
 
 type CartButtonProp = {
-  product: {};
+  product: ProductT;
 };
 
 const AddToCart: React.FC<CartButtonProp> = ({ product }) => {
