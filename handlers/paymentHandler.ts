@@ -1,5 +1,6 @@
+import { ProductT } from "@/types/types";
 import { loadStripe } from "@stripe/stripe-js";
-export const handlePayment = async (cartItems) => {
+export const handlePayment = async (cartItems: ProductT[]) => {
   try {
     const stripe = await loadStripe(
       process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
