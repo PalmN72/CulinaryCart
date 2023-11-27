@@ -8,7 +8,7 @@ const Product: React.FC<{ product: ProductT }> = ({ product }) => {
   const { slug, name, price } = product;
 
   return (
-    <div>
+    <div className="product-marquee">
       <Link href={`/product/${slug.current}`}>
         <div className="product-card">
           <img
@@ -16,7 +16,6 @@ const Product: React.FC<{ product: ProductT }> = ({ product }) => {
             alt={name as string}
             className="product-image"
           />
-
           <p className="product-name">{name}</p>
           <p className="product-price">SEK {price.toString()}</p>
         </div>
