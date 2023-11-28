@@ -9,3 +9,4 @@ export { default as ProductImages } from "./ProductImages";
 export { default as Quantity } from "./buttons/Quantity";
 export { default as AddToCart } from "./buttons/AddToCart";
 export { default as CartIconButton } from "./buttons/CartIconButton";
+export { default as ProductBanner } from "./ProductBanner";
