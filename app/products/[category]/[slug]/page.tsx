@@ -9,7 +9,6 @@ import Marquee from "react-fast-marquee";
 const ProductDetails = async ({ params }: { params: { slug: string } }) => {
   const product: ProductT = await getProduct(params.slug);
   const products = (await getProducts()).products;
-  console.log(products);
 
   return (
     <div>
