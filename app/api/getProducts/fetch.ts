@@ -1,21 +1,22 @@
 import { client } from "@/sanity/lib/client";
 import { ProductT, BannerT } from "@/types/types";
 
-export const fetchProd = async (slug: string) => {
-  const data = await client.fetch(
+export const getProduct = async (slug: string) => {
+  const product = await client.fetch(
     `*[_type == "product" && slug.current == '${slug}'][0]`
   );
 
-  return data;
+  return product;
 };
 
-export const fetchSanity = async () => {
-  const query = '*[_type == "product"]';
-  const bannerQ = '*[_type == "banner"][0]';
+export const getBanner = async () => {
+  const query = '*[_type == "banner"][0]';
+  const bannerData: BannerT = await client.fetch(query);
+  return bannerData;
+};
+
+export const getProducts = async () => {
+  const query = `*[_type == "product"]`;
   const products: ProductT[] = await client.fetch(query);
-  const bannerData: BannerT = await client.fetch(bannerQ);
-  return {
-    products,
-    bannerData,
-  };
+  return { products };
 };
