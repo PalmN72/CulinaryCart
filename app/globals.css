@@ -16,6 +16,10 @@ a {
   text-decoration: none;
 }
 
+body {
+  background-color: beige;
+}
+
 .main-container{
 max-width: 1400px; 
 margin: auto;
