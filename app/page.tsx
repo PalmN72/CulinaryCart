@@ -12,7 +12,7 @@ export default function Home() {
       <div className="products-heading">
         <h2>Best Selling Products</h2>
         <p>Fruits</p>
-        <p></p>
+        <p>Test</p>
       </div>
       <div className="products-container">
         {products.map((product: ProductT) => {
