@@ -9,6 +9,7 @@ export type ProductT = {
       };
     }
   ];
+  category: string;
   _createdAt: string;
   name: string;
   _updatedAt: string;
