@@ -11,7 +11,7 @@ const ProductsPage = ({ params }: { params: { category: string } }) => {
   const products = productData.filter((product) => {
     if (product.category === params.category) return product;
   });
-
+  console.log(products);
   return (
     <>
       <ProductBanner category={params.category} />
