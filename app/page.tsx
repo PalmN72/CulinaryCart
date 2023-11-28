@@ -1,13 +1,11 @@
 import { Product, FooterBanner, HeroBanner } from "../components";
 import { ProductT } from "@/types/types";
-import { fetchSanity } from "./api/getProducts/fetch";
+import { getProducts, getBanner } from "./api/getProducts/fetch";
 
-const data = await fetchSanity();
+const bannerData = await getBanner();
+const products = (await getProducts()).products;
 
 export default function Home() {
-  const productData = data.products;
-  const bannerData = data.bannerData;
-
   return (
     <main>
       <HeroBanner heroBanner={bannerData} />
@@ -16,7 +14,7 @@ export default function Home() {
         <p>Fruits</p>
       </div>
       <div className="products-container">
-        {productData.map((product: ProductT) => (
+        {products.map((product: ProductT) => (
           <Product key={product._id as React.Key} product={product} />
         ))}
       </div>
