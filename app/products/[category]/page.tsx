@@ -1,12 +1,12 @@
+"use client";
 import React from "react";
 import { Product } from "@/components";
 import { ProductT } from "@/types/types";
 import { getProducts } from "../../api/getProducts/fetch";
 import { ProductBanner } from "@/components";
 
-const products = (await getProducts()).products;
-
-const ProductsPage = ({ params }: { params: { category: string } }) => {
+const ProductsPage = async ({ params }: { params: { category: string } }) => {
+  const products = (await getProducts()).products;
   const filteredProds = products.filter((product) => {
     if (product.category === params.category) return product;
   });
