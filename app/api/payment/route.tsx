@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
 
       line_items: lineItems,
       success_url: `${headersList.get("origin")}/success`,
-      cancel_url: `${headersList.get("origin")}/canceled`,
+      cancel_url: `${headersList.get("origin")}/`,
     });
 
     return NextResponse.json({ sessionId: session.id });
