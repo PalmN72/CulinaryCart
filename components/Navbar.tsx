@@ -5,11 +5,12 @@ import CartIconButton from "./buttons/CartIconButton";
 const Navbar = () => {
   return (
     <div className="navbar-container">
-      <Link href="/products/fruits">Fruit</Link>
-      <Link href="/products/vegetables">Vegetables</Link>
-      <Link href="/products/accessories">Accessories</Link>
-      <Link href="/about">About</Link>
-      <Link href="/delivery">Delivery</Link>
+      <Link href="/">Culinary Cart</Link>
+      <Link href="/products/fruits">fruits</Link>
+      <Link href="/products/vegetables">vegetables</Link>
+      <Link href="/products/accessories">accessories</Link>
+      <Link href="/about">about</Link>
+      <Link href="/delivery">delivery</Link>
       <CartIconButton />
       <Cart />
     </div>
