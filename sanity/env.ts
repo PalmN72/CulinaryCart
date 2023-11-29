@@ -6,10 +6,11 @@ export const dataset = "production";
 //   "Missing environment variable: SANITY_STUDIO_DATASET"
 // );
 
-export const projectId = assertValue(
-  process.env.SANITY_STUDIO_PROJECT_ID,
-  "Missing environment variable: SANITY_STUDIO_PROJECT_ID"
-);
+export const projectId = "m9c5ybdd";
+// export const projectId = assertValue(
+//   process.env.SANITY_STUDIO_PROJECT_ID,
+//   "Missing environment variable: SANITY_STUDIO_PROJECT_ID"
+// );
 
 export const useCdn = true;
 
