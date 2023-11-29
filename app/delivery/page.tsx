@@ -21,7 +21,7 @@ const Delivery = () => {
 
         <h2>3. Order Confirmation and Tracking</h2>
         <p>
-          Upon completing your purchase, you'll receive an order confirmation
+          Upon completing your purchase, you will receive an order confirmation
           via email. Once your order is dispatched, a shipping confirmation with
           a tracking number will be sent to track the delivery status.
         </p>
