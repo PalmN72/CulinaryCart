@@ -8,16 +8,15 @@ const Delivery = () => {
 
         <h2>1. Delivery Areas and Timeframes</h2>
         <p>
-          We deliver to [Specify delivery areas] within [Specify delivery
-          timeframes]. Standard delivery takes approximately [Specify number of
-          business days]. Express delivery is available for faster shipping.
+          We deliver to all areas within 2 weeks. Standard delivery takes
+          approximately 3 - 5 days. Express delivery is available for faster
+          shipping.
         </p>
 
         <h2>2. Delivery Charges</h2>
         <p>
           Delivery charges are calculated at checkout. Standard delivery costs
-          [Specify standard delivery fee]. For express delivery, an additional
-          fee of [Specify express delivery fee] applies.
+          nothing. For express delivery, an additional fee of 200 SEK applies.
         </p>
 
         <h2>3. Order Confirmation and Tracking</h2>
