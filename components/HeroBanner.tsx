@@ -16,7 +16,7 @@ const HeroBanner: React.FC<{ heroBanner: BannerT }> = ({ heroBanner }) => {
           className="hero-banner-image"
         />
         <div>
-          <Link href="/">
+          <Link href="/products/fruits/red-apples">
             <button type="button">{heroBanner.buttonText}</button>
           </Link>
           <div className="desc">
