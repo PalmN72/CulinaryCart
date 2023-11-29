@@ -83,6 +83,28 @@ width: 100%;
   font-weight: 600;
 
 }
+
+.about-container, .delivery-container {
+  padding: 90px 40px;
+  background-color: #556b2f;
+  color: #e1d721;
+  border-radius: 15px;
+  position: relative;
+  height: 500px;
+  line-height: 0.9; 
+  width: 100%;
+}
+.about-container > *, .delivery-container > * {
+  margin-top: 0.9em;
+  line-height: 20px;
+}
+
+.about-container h3, .delivery-container h3{
+  font-size: 4rem;
+  margin-top: 4px;
+  margin-bottom: 40px;
+}
+
 .products-container{
   display: flex;
   flex-wrap: wrap;
