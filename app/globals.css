@@ -94,6 +94,8 @@ width: 100%;
   line-height: 0.9; 
   width: 100%;
 }
+
+
 .about-container > *, .delivery-container > * {
   margin-top: 0.9em;
   line-height: 20px;
@@ -103,6 +105,32 @@ width: 100%;
   font-size: 4rem;
   margin-top: 4px;
   margin-bottom: 40px;
+}
+
+.product-banner-container {
+  padding: 90px 40px;
+  background-color: #556b2f;
+  color: #e1d721;
+  border-radius: 15px;
+  position: relative;
+  height: 500px;
+  line-height: 0.9; 
+  width: 100%;
+}
+
+.product-banner-container h3 {
+  font-size: 4rem;
+  margin-top: 4px;
+  margin-bottom: 1em;
+}
+
+.product-banner-container p {
+  margin-top: 2em;
+}
+
+.product-banner-container > * {
+  margin-top: 1em;
+  line-height: 20px;
 }
 
 .products-container{
