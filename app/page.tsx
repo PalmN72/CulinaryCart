@@ -15,10 +15,9 @@ export default function Home() {
         <p>Test</p>
       </div>
       <div className="products-container">
-        {products.map((product: ProductT) => {
-          if (product.category === "fruits")
-            return <Product key={product._id as React.Key} product={product} />;
-        })}
+        {products.map((product: ProductT) => (
+          <Product key={product._id as React.Key} product={product} />
+        ))}
       </div>
       <FooterBanner banner={bannerData} />
     </main>

@@ -14,6 +14,7 @@ const ProductsPage = ({ params }: { params: { category: string } }) => {
 
   return (
     <>
+      <p>{params.category}</p>
       <ProductBanner category={params.category} />
       <div className="products-container">
         {productData.map((product: ProductT) => (
